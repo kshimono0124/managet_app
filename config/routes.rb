@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
-  root 'home#index'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  root to: 'home#index'
+  
+  get "users/:id" => "users#show", as: :mypage
+  resources :users, only: [:index, :mypage, :edit, :update, :destroy]
+  resources :clients
+  
+  # resources :clients do
+  #   get :search, on: :collection
+  # end
 end

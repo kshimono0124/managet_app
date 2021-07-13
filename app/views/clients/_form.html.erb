@@ -1,0 +1,43 @@
+<div id="app">
+  <div class="container">
+    <h3 class="top-heading">連絡先追加</h3>
+      <%= form_with(model: client, url: clients_path, local: true) do |f| %>
+        <%= render 'error_messages', client: @client %>
+        <div class="row">
+          <div class="col-md-5 col-left-item">
+            <%= f.label :company, "会社名" %>
+          </div>
+          <div class="form-group col-md-7">
+            <%= f.text_field :company, class: "form-control", :placeholder => "Enter company ..." %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 col-left-item">
+            <%= f.label :name, "お名前" %>
+          </div>
+          <div class="form-group col-md-7">
+            <%= f.text_field :name, class: "form-control", :placeholder => "Enter name ..." %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 col-left-item">
+            <%= f.label :phonenumber, "電話番号" %>
+          </div>
+          <div class="form-group col-md-7">
+            <%= f.text_field :phonenumber, class: "form-control", :placeholder => "Enter phonenumber ..." %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5 col-left-item">
+            <%= f.label :email, "メールアドレス" %>
+          </div>
+          <div class="form-group col-md-7">
+            <%= f.email_field :email, class: "form-control", :placeholder => "Enter email ..."  %>
+          </div>
+        </div>
+        <div class="submit-btn-company-info">
+          <%= f.submit "Create Company info", class: "btn btn-primary w-50 h-50" %>
+        </div>
+      <% end %>
+  </div>
+</div>

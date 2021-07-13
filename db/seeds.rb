@@ -1,7 +1,36 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+# メインのサンプルユーザーを1人作成する
+User.create!(name:  "guest",
+             email: "guest@guest.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true)
+
+# 追加のユーザーをまとめて生成する
+30.times do |n|
+  name  = Faker::Name.name
+  email = "example-#{n+1}@guest.com"
+  password = "password"
+  User.create!(name:  name,
+               email: email,
+               password:              password,
+               password_confirmation: password)
+end
+
+# メインのサンプルユーザーを1人作成する
+Client.create!(company:  "タロウ株式会社",
+             name: "田中太郎",
+             phonenumber: "090-9999-9999",
+             email: "taro@example.com")
+
+# 追加のユーザーをまとめて生成する
+99.times do |n|
+  company = Faker::Company.name
+  name  = Faker::Name.name
+  phonenumber = Faker::PhoneNumber.cell_phone
+  # phonenumber = Faker::PhoneNumber.cell_phone_in_e164
+  email = "example-#{n+1}@example.com"
+  Client.create!(company:  company,
+               name: name,
+               phonenumber: phonenumber,
+               email: email)
+end
