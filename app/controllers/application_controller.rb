@@ -4,10 +4,14 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name])
   end
   
-  # ログイン後に遷移するページ
   def after_sign_in_path_for(resource)
+    mypage_path(resource)
+  end
+  
+  def after_update_path_for(resource)
     mypage_path(resource)
   end
 end

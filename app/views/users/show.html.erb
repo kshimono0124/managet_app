@@ -7,7 +7,9 @@
       <p><span class="sub">名前   ：</span>　<%= @user.name %></p>
       <p><span class="sub">メール：</span><%= @user.email %></p>
       <div>
-          <%= link_to "編集する", edit_user_path %>
+        <% if @user.name == current_user.name %>
+          <%= link_to "編集する", edit_user_registration_path %>
+        <% end %>
       </div>
       <div class="d-flex margin-bottom30">
         <div class="margin-auto margin-right">

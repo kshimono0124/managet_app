@@ -1,7 +1,7 @@
 <div id="app">
   <div class="container">
     <h3 class="top-heading">連絡先追加</h3>
-      <%= form_with(model: client, url: clients_path, local: true) do |f| %>
+      <%= form_with(model: client, local: true) do |f| %>
         <%= render 'error_messages', client: @client %>
         <div class="row">
           <div class="col-md-5 col-left-item">
