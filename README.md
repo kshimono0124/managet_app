@@ -1,24 +1,16 @@
-# README
+# アプリケーションの概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このアプリは営業支援ツールとして、顧客管理情報を効率よく管理できるように作成。
 
-Things you may want to cover:
+# アプリケーションで使っている技術
+・言語:Ruby
+・フレームワーク:Ruby on Rails
+・DB:SQLite (開発環境), PostgreSQL (本番環境)
+・バージョン管理:Git
+・インフラ:Heroku
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# 実装した機能等の概要
+・ログイン機能 → devise
+・ユーザー登録機能
+・会社情報を登録（CLUD機能）
+・単体テスト、統合テスト(rspecを使用)
