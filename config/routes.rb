@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get "users/:id" => "users#show", as: :mypage
   resources :users, only: [:index, :mypage, :edit, :update, :destroy]
   resources :clients
-  
+
   # resources :clients do
   #   get :search, on: :collection
   # end
