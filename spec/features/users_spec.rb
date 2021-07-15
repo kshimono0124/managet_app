@@ -12,8 +12,17 @@ RSpec.feature "Users", type: :feature do
     fill_in 'Eメール', with: 'guest@guest.com'
     fill_in 'パスワード', with: 'foobar'
     # ログインボタンをクリックする
-    click_button('Log in')
+    click_button('ログイン')
     # ログインに成功したことを検証する
     expect(page).to have_content 'ログインしました'
+  end
+  
+  it 'guest Log in' do
+    # トップページを開く
+    visit new_user_session_path
+    # ログインボタンをクリックする
+    click_link ('ゲストログイン（閲覧用）')
+    # ログインに成功したことを検証する
+    expect(page).to have_content 'ゲストユーザーとしてログインしました。'
   end
 end

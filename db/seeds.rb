@@ -8,7 +8,7 @@ User.create!(name:  "guest",
 # 追加のユーザーをまとめて生成する
 30.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@guest.com"
+  email = "#{n+1}@guest.com"
   password = "password"
   User.create!(name:  name,
                email: email,
@@ -28,7 +28,7 @@ Client.create!(company:  "タロウ株式会社",
   name  = Faker::Name.name
   phonenumber = Faker::PhoneNumber.cell_phone
   # phonenumber = Faker::PhoneNumber.cell_phone_in_e164
-  email = "example-#{n+1}@example.com"
+  email = "#{n+1}@example.com"
   Client.create!(company:  company,
                name: name,
                phonenumber: phonenumber,

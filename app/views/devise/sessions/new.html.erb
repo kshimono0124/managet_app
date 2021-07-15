@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row sessionBox">
     <div class="col-md-6 col-md-offset-3 margin-lr-auto">
-      <h1>Log in</h1>
+      <h1>ログイン</h1>
       <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
         <%= f.label :email %>
         <%= f.email_field :email, class: "form-control" %>
@@ -14,9 +14,10 @@
             <span>Remember me on this computer</span>
           <% end %>
         <% end %>
-        <%= f.submit "Log in", class: "btn btn-primary" %>
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
       <% end %>
       <p>New user? <%= link_to 'Sign up now!', new_user_registration_path %></p>
+      <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, class: "guest btn btn-warning", method: :post %>
     </div>
   </div>
   <p class="test">
