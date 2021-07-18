@@ -35,6 +35,14 @@
             <%= f.email_field :email, class: "form-control", :placeholder => "Enter email ..."  %>
           </div>
         </div>
+        <div class="row">
+          <div class="col-md-5 col-left-item">
+            <%= f.label :content, "補足情報" %>
+          </div>
+          <div class="form-group col-md-7">
+            <%= f.text_area :content, rows: 3, class: "form-control", maxlength: "140", :placeholder => "Enter information ..."  %>
+          </div>
+        </div>
         <div class="submit-btn-company-info">
           <%= f.submit "Create Company info", class: "btn btn-primary w-50 h-50" %>
         </div>

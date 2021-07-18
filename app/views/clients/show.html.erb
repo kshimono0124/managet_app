@@ -27,6 +27,31 @@
             <%= @client.email %>
           </td>
         </tr>
+        <tr>
+          <td>レビュー：</td>
+          <td class="tb">
+            <!--★★★★★-->
+            <div class="star-rating-front" style="width: <%= @client.review_score_percentage %>%">★★★★★</div>
+            (<%= @client.avg_score %>点)
+            <%= link_to client_reviews_path(@client), class: "button light ml-3 mt-3 review-btn" do %>
+              レビューをする
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="col-md-4 infoBox userBox">
+  <div>
+    <p>補足情報</p>
+    <div id="clientInfo">
+      <table>
+        <tr>
+          <td class="tb">
+            <%= @client.content %>
+          </td>
+        </tr>
       </table>
     </div>
   </div>

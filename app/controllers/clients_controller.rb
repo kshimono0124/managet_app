@@ -1,13 +1,15 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, only: %i[ show edit update destroy ]
 
   # GET /clients or /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.all.page(params[:page])
   end
 
   # GET /clients/1 or /clients/1.json
   def show
+    @review = Review.new
   end
 
   # GET /clients/new
@@ -26,7 +28,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to clients_path, notice: "会社情報を登録しました。" }
-        format.json { render :index, status: :created, location: @client }
+        format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -39,7 +41,7 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to clients_path, notice: "会社情報を更新しました。" }
-        format.json { render :index, status: :ok, location: @client }
+        format.json { render :show, status: :ok, location: @client }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @client.errors, status: :unprocessable_entity }
@@ -68,6 +70,6 @@ class ClientsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def client_params
-      params.require(:client).permit(:company, :name, :phonenumber, :email)
+      params.require(:client).permit(:company, :name, :phonenumber, :email, :content)
     end
 end

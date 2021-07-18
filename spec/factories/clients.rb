@@ -4,5 +4,6 @@ FactoryBot.define do
     name "test部長"
     phonenumber "000-9999-0000"
     email "test-butyo@example.com"
+    content "a" * 140
   end
 end

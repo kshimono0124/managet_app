@@ -22,10 +22,12 @@
               <td><%= client.name %></td>
               <td><%= client.phonenumber %></td>
               <td><%= client.email %></td>
+              <td><%= link_to '詳細', client %></td>
               <td><%= link_to '編集', edit_client_path(client) %></td>
               <td><%= link_to '削除', client, method: :delete, data: { confirm: '削除してもよろしいですか?' } %></td>
             </tr>
           <% end %>
+          <%= paginate @clients %>
         </tbody>
       </table>
     </div>

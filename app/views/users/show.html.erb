@@ -4,7 +4,15 @@
       <h1>
         個人情報
       </h1>
-      <p><span class="sub">名前   ：</span>　<%= @user.name %></p>
+      <p>
+        <span class="sub">名前   ：</span>　
+        <% if @user.image? %>
+				  <%= image_tag @user.image.url, alt: "アイコン画像", class: "icon-image host-icon" %>
+				<% else %>
+				  <%= image_tag "default_icon.jpg", alt: "アイコン画像", class: "icon-image host-icon" %>
+				<% end %>
+        <%= @user.name %>
+      </p>
       <p><span class="sub">メール：</span><%= @user.email %></p>
       <div>
         <% if @user.name == current_user.name %>

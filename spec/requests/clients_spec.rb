@@ -2,6 +2,11 @@ require 'rails_helper'
 
 RSpec.describe "Clients", type: :request do
   
+  before do
+    @user = FactoryBot.create(:user)
+    sign_in @user
+  end
+  
   describe 'GET #index' do
     it 'responds successfully' do
       get clients_path
@@ -62,6 +67,16 @@ RSpec.describe "Clients", type: :request do
       get edit_client_url client
       expect(response.body).to include 'test-butyo@example.com'
     end
+    
+    it 'show client content' do
+      get edit_client_url client
+      expect(response.body).to include 'a' * 140
+    end
+    
+    it 'show client content' do
+      get edit_client_url client
+      expect(response.body).to_not include 'a' * 141
+    end
   end
   
   describe 'POST #create and #update' do
@@ -79,7 +94,7 @@ RSpec.describe "Clients", type: :request do
 
       it 'Redirecting' do
         post clients_url, params: { client: FactoryBot.attributes_for(:client) }
-        expect(response).to redirect_to User.last
+        expect(response).to redirect_to @client
       end
     end
   end

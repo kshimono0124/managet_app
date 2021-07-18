@@ -20,17 +20,19 @@ end
 Client.create!(company:  "タロウ株式会社",
              name: "田中太郎",
              phonenumber: "090-9999-9999",
-             email: "taro@example.com")
+             email: "taro@example.com",
+             content: "キャッチコピー、会社情報などを入力してください。")
 
 # 追加のユーザーをまとめて生成する
 99.times do |n|
   company = Faker::Company.name
   name  = Faker::Name.name
   phonenumber = Faker::PhoneNumber.cell_phone
-  # phonenumber = Faker::PhoneNumber.cell_phone_in_e164
   email = "#{n+1}@example.com"
+  content = Faker::Company.catch_phrase
   Client.create!(company:  company,
                name: name,
                phonenumber: phonenumber,
-               email: email)
+               email: email,
+               content: content)
 end

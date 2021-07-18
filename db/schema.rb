@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_11_075620) do
+ActiveRecord::Schema.define(version: 2021_07_18_024813) do
 
   create_table "clients", force: :cascade do |t|
     t.string "company"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2021_07_11_075620) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "content"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "client_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["client_id"], name: "index_reviews_on_client_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_07_11_075620) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "name"
     t.boolean "admin", default: false
+    t.string "image"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["name"], name: "index_users_on_name", unique: true
@@ -50,4 +62,6 @@ ActiveRecord::Schema.define(version: 2021_07_11_075620) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "reviews", "clients"
+  add_foreign_key "reviews", "users"
 end

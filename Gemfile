@@ -38,6 +38,12 @@ gem 'ransack'
 
 gem 'faker'
 
+gem 'kaminari'
+
+gem 'carrierwave'
+
+gem 'mini_magick'
+
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '4.0.0.beta3'
