@@ -31,6 +31,10 @@
 * バージョン管理:Git
 * インフラ:Heroku
 
+## ER
+
+https://user-images.githubusercontent.com/79389376/126315042-202c9307-9be9-456e-aa88-f0cd1135a6a6.png
+
 ## 実装した機能等の概要
 * ログイン機能
 * ユーザー情報登録機能
