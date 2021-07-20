@@ -11,7 +11,7 @@
           <ul class="navbar-nav mt-2 mt-lg-0 header-font">
               <li class="nav-item active"><%= link_to "Home", root_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to "個人情報", mypage_path(current_user), class: "nav-link" %></li>
-              <!--<li class="nav-item"><%= link_to "会社一覧", clients_path, class: "nav-link" %></li>-->
+              <li class="nav-item"><%= link_to "会社一覧", clients_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to "会社登録", new_client_path, class: "nav-link" %></li>
               <li class="nav-item"><%= link_to "Log out", destroy_user_session_path, class: "nav-link", method: :delete %></li>
           </ul>
