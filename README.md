@@ -31,6 +31,10 @@
 * バージョン管理:Git
 * インフラ:Heroku
 
+## 画像をアップロードした場合のユーザー画像
+
+https://user-images.githubusercontent.com/79389376/126316896-44026f8c-cd1c-467f-b2e8-76d7e2343f47.png
+
 ## ER図
 
 https://user-images.githubusercontent.com/79389376/126315042-202c9307-9be9-456e-aa88-f0cd1135a6a6.png
