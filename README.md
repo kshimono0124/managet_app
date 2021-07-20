@@ -33,7 +33,7 @@
 
 ## 画像をアップロードした場合のユーザー画像
 
-https://github.com/kshimono0124/managet_app/issues/1#issue-948564455
+https://user-images.githubusercontent.com/79389376/126316896-44026f8c-cd1c-467f-b2e8-76d7e2343f47.png
 
 ## ER図
 
